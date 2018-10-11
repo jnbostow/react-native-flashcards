@@ -33,7 +33,7 @@ class DeckDetails extends React.Component {
 
     render(){
         const { deckName } = this.props.navigation.state.params
-        const { decks } = this.props
+        const { decks }  = this.props
 
         return(
             decks[deckName] === undefined?

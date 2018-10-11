@@ -20,29 +20,33 @@ class DeckList extends Component {
         const { decks } = this.props ///should this be in the component state or just in props?
 
         return(
-            <View style={styles.container}>
-            < ScrollView contentContainerStyle={styles.scrollContainer}>
-                {Object.keys(decks).length <= 0?
-                        <Text style={[styles.h2, {textAlign: 'center', marginTop: 30}]}> You have no decks to view</Text>
-                        :
-                        Object.keys(decks).map(deckName =>
-                            <TouchableWithoutFeedback key={deckName} onPress={() => this.props.navigation.navigate(
-                                'DeckDetails',
-                                { deckName: deckName }
-                            )}>
-                                <View  style={styles.deckCard}>
-                                    <Text style={[styles.h2, styles.textWithShadow]}>{ decks[deckName].title }</Text>
-                                    <Text style={[styles.p, styles.textWithShadow]}>{ decks[deckName].questions.length } cards</Text>
-                                </View>
-                            </TouchableWithoutFeedback>
-                        )}
-            </ ScrollView>
-            </View>
+            decks === undefined?
+
+                <ActivityIndicator size="small"/>
+                :
+                <View style={styles.container}>
+                < ScrollView contentContainerStyle={styles.scrollContainer}>
+                    {Object.keys(decks).length <= 0?
+                            <Text style={[styles.h2, {textAlign: 'center', marginTop: 30}]}> You have no decks to view</Text>
+                            :
+                            Object.keys(decks).map(deckName =>
+                                <TouchableWithoutFeedback key={deckName} onPress={() => this.props.navigation.navigate(
+                                    'DeckDetails',
+                                    { deckName: deckName }
+                                )}>
+                                    <View  style={styles.deckCard}>
+                                        <Text style={[styles.h2, styles.textWithShadow]}>{ decks[deckName].title }</Text>
+                                        <Text style={[styles.p, styles.textWithShadow]}>{ decks[deckName].questions.length } cards</Text>
+                                    </View>
+                                </TouchableWithoutFeedback>
+                            )}
+                </ ScrollView>
+                </View>
         )
     }
 }
 
-function mapStateToProps (state = {}) {
+function mapStateToProps (state) {
     return {
         decks: state
     }
