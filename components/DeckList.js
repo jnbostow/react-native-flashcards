@@ -42,7 +42,7 @@ class DeckList extends Component {
     }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state = {}) {
     return {
         decks: state
     }
