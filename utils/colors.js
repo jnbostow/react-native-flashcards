@@ -1,0 +1,5 @@
+export const teal = '#3ED9CF'
+export const yellow = '#FCBC53'
+export const pink = '#FF5E5E'
+export const green = '#57DF9A'
+export const gray = '#2E2E2E'
