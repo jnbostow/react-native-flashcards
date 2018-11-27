@@ -55,6 +55,8 @@ const TabNav = createBottomTabNavigator({
             shadowOpacity: 1
         }
     }
+},{
+    initialRouteName: 'DeckList'
 });
 
 const StackNav = createStackNavigator(
@@ -68,6 +70,7 @@ const StackNav = createStackNavigator(
         DeckDetails: {
             screen: DeckDetails,
             navigationOptions: {
+                title: 'Deck Details',
                 headerTitleStyle: {
 
                 },

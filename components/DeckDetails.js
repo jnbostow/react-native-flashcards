@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Button, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, ActivityIndicator, Platform } from 'react-native';
 import Quiz from '../components/Quiz'
 import AddCard from '../components/AddCard'
 import { connect } from 'react-redux'
 import { handleRemoveDeck } from "../actions/async";
 import { green, pink, gray } from '../utils/colors'
+import { Ionicons } from '@expo/vector-icons'
 
 class DeckDetails extends React.Component {
     constructor(props) {
@@ -12,20 +13,37 @@ class DeckDetails extends React.Component {
 
         this.handleDelete = this.handleDelete.bind(this);
     }
-    static navigationOptions = ()=> {
+    static navigationOptions = ({ navigation })=> {
         return {
-            title: 'Deck Details',
+            title: 'DecksList',
             headerTintColor: '#fff',
             headerTitleStyle: {
                 fontWeight: 'bold',
-            }
+            },
+            // headerLeft: (
+            //     <Button style={{color: 'white', fontWeight: 'bold'}}
+            //             title="Deck List"
+            //             onPress={() => navigation.navigate('DecksList')}
+            //     />
+            // )
+            headerLeft: (
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('DecksList')}
+                    style={{flexDirection: 'row', alignItems: 'center',}}
+                ><Ionicons name="ios-arrow-back" style={[styles.header, {fontSize: 35}]} />
+                    <Text style={styles.header}>
+
+                        Deck List
+                    </Text>
+                </TouchableOpacity>
+            )
         }
     };
 
     handleDelete() {
         const {deckName} = this.props.navigation.state.params
 
-        this.props.navigation.goBack()
+        this.props.navigation.navigate('DecksList')
         this.props.dispatch(handleRemoveDeck(deckName))
 
 
@@ -117,5 +135,10 @@ const styles = StyleSheet.create({
     },
     buttonText: {
 
+    },
+    header: {
+        color: '#fff',
+        fontSize: 18,
+        marginLeft: 10,
     }
 });

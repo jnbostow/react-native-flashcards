@@ -24,7 +24,7 @@ class AddCard extends React.Component {
             },
             deck
         ))
-        this.props.navigation.navigate('Home')
+        this.props.navigation.goBack()
     }
 
     render(){

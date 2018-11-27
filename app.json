@@ -1,11 +1,14 @@
 {
   "expo": {
     "name": "mobile-flashcards",
-    "description": "This project is really great.",
+    "description": "This app is intended to mimic studying flash cards.  The project was created as part of my Udacity React Nanodegree.",
     "slug": "mobile-flashcards",
     "privacy": "public",
     "sdkVersion": "30.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "githubUrl": "https://github.com/jnbostow/react-native-flashcards"
   }
 }
