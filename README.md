@@ -5,7 +5,9 @@ This is a mobile app developed with React Native to provide studying flashcards
 ### Author: 
 Jacki Bostow
 ### Description: 
-this project is a part of the Udacity React Native program.  
+this project is a part of the Udacity React Native program.
+### Video Demo: https://youtu.be/JPG5P1lcsLk
+### Expo Demo: https://expo.io/@jnbostow/mobile-flashcards
 
 # Dependencies 
 This project must be initialized with yarn or npm.  Be sure you have one of these package managers installed.
